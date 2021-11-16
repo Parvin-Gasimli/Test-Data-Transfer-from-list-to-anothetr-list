@@ -32,13 +32,9 @@ class Categorylist extends Component {
         Muherrik: 4.4,
         Model: "F10",
       },
-    ],
-    CurrentCategory:"fljsjlfs"
+    ]
   };
-  changeCategory=(category)=>{
-    this.setState({CurrentCategory:category.Name})
 
-  }
 
   render() {
     return (
@@ -48,7 +44,7 @@ class Categorylist extends Component {
           {this.state.categories.map((category) => {
             return (
               <ListGroupItem
-              onClick={()=>this.changeCategory(category)}
+              onClick={()=>this/this.props.changeCategory(category)}
                key={category.id}>
                 Name:{category.Name}
                 Year:{category.Year}
@@ -56,7 +52,7 @@ class Categorylist extends Component {
             );
           })}
         </ListGroup>
-        <h4> {this.state.CurrentCategory}</h4>
+        <h4> {this.props.CurrentCategory}</h4>
       </div>
     );
   }
