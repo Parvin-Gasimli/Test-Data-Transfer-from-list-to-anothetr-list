@@ -7,7 +7,7 @@ import { Col, Container, Row } from "reactstrap";
 
 class App extends Component {
   state={
-    CurrentCategory:"asb"
+    CurrentCategory:""
   }
   changeCategory=(category)=>{
     this.setState({CurrentCategory:category.Name})
@@ -27,7 +27,7 @@ class App extends Component {
              <Categorylist CurrentCategory={this.state.CurrentCategory} changeCategory={this.changeCategory} info={TitleCategory} />
             </Col>
             <Col xs="9">
-            <Productlist  info={TitleProduct} />
+            <Productlist CurrentCategory={this.state.CurrentCategory} changeCategory={this.changeCategory}  info={TitleProduct} />
             </Col>
            
       

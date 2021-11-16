@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ListGroup, ListGroupItem, ModalHeader } from "reactstrap";
+import { ListGroup, ListGroupItem } from "reactstrap";
 
 class Categorylist extends Component {
   state = {
