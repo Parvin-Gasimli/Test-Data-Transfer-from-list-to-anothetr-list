@@ -7,12 +7,20 @@ import { Col, Container, Row } from "reactstrap";
 
 class App extends Component {
   state={
-    CurrentCategory:""
+    CurrentCategory:"",products:[]
+  }
+  componentDidMount(){
+    this.getProducts()
   }
   changeCategory=(category)=>{
-    this.setState({CurrentCategory:category.Name})
+    this.setState({CurrentCategory:category.categoryName})
 
   } 
+  getProducts=()=>{
+    fetch(" http://localhost:3002/products")
+    .then(resonse=>resonse.json())
+    .then(data=>this.setState({products:data}));
+  }
   render(){
     let TitleProduct={title:"Hi Product",any:"hello Pro"};
     let TitleCategory="Hello Category";
@@ -27,7 +35,7 @@ class App extends Component {
              <Categorylist CurrentCategory={this.state.CurrentCategory} changeCategory={this.changeCategory} info={TitleCategory} />
             </Col>
             <Col xs="9">
-            <Productlist CurrentCategory={this.state.CurrentCategory} changeCategory={this.changeCategory}  info={TitleProduct} />
+            <Productlist products={this.state.products} CurrentCategory={this.state.CurrentCategory} changeCategory={this.changeCategory}  info={TitleProduct} />
             </Col>
            
       
