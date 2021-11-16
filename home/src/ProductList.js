@@ -14,8 +14,8 @@ class Productlist extends Component {
             <tr>
               <th>Num</th>
               <th>productName</th>
-              <th>quantityPerUnit</th>
-              <th>unitsInStock</th>
+              <th>quantity Per Unit</th>
+              <th>units In Stock</th>
             </tr>
           </thead>
           <tbody>
