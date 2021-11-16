@@ -19,9 +19,9 @@ class App extends Component {
     let newCart = this.state.cart;
     var AddItem = newCart.find((c) => c.product.id === product.id);
     if (AddItem) {
-      AddItem.quantity += 1;
+      AddItem.count += 1;
     } else {
-      newCart.push({ product: product, queantity: 1 });
+      newCart.push({ product: product, count: 1 });
     }
 
     this.setState({ cart: newCart });

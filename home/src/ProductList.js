@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import { Table } from "reactstrap";
+import { Table,Button } from "reactstrap";
 
 class Productlist extends Component {
+    addToCart=(product)=>{
+        alert(`${product.productName} Adli mehsul Sebete eklendi`)
+    }
   render() {
     return (
       <div>
@@ -16,6 +19,7 @@ class Productlist extends Component {
               <th>productName</th>
               <th>quantity Per Unit</th>
               <th>units In Stock</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -25,6 +29,7 @@ class Productlist extends Component {
                 <td>{product.productName}</td>
                 <td>{product.quantityPerUnit}</td>
                 <td>{product.unitsInStock}</td>
+                <td> <Button onClick={()=>this.props.addToCart(product)} style={{width:'121px'}} color="info">Add To Cart</Button></td>
               </tr>
             ))}
           </tbody>
