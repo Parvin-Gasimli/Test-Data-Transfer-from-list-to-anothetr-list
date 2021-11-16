@@ -26,6 +26,10 @@ class App extends Component {
 
     this.setState({ cart: newCart });
   };
+  RemoveFromCart = (product) => {
+    let newCart = this.state.cart.filter((c) => c.product.id !== product.id);
+    this.setState({ cart: newCart });
+  };
   changeCategory = (category) => {
     this.setState({ CurrentCategory: category.categoryName });
     // console.log(category)
@@ -46,7 +50,10 @@ class App extends Component {
     return (
       <div>
         <Container>
-          <Navi cart={this.state.cart} />
+          <Navi 
+          RemoveFromCart={this.RemoveFromCart}
+
+          cart={this.state.cart} />
 
           <Row>
             <Col xs="3">

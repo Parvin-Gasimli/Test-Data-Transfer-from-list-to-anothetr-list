@@ -25,7 +25,10 @@ class Navi extends Component {
               <NavItem>
               
               </NavItem>
-              <CartSumary cart={this.props.cart}/>
+              <CartSumary
+              RemoveFromCart={this.props.RemoveFromCart}
+
+               cart={this.props.cart}/>
           
             </Nav>
             <NavbarText>Simple Text</NavbarText>

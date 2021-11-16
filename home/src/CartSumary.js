@@ -5,6 +5,8 @@ import {
   DropdownMenu,
   DropdownItem,
   Badge,
+  NavItem,
+  NavLink,
 } from "reactstrap";
 
 export default class CartSumary extends Component {
@@ -17,6 +19,7 @@ export default class CartSumary extends Component {
         <DropdownMenu right>
           {this.props.cart.map((cartItem) => (
             <DropdownItem key={cartItem.product.id}>
+                <Badge color="danger" onClick={()=>this.props.RemoveFromCart(cartItem.product)}>Sil </Badge>
               {cartItem.product.productName}
               <Badge color="success">{cartItem.count}</Badge>
             </DropdownItem>
@@ -28,7 +31,20 @@ export default class CartSumary extends Component {
       </UncontrolledDropdown>
     );
   }
+  RenderEmptyCart(){
+     return(
+        <NavItem>
+        <NavLink>
+            Empty Cart...
+        </NavLink>
+    </NavItem>
+     )
+  }
+
+
   render() {
-    return <div></div>;
+    return <div>
+        {this.props.cart.length>0?this.renderSummary():this.RenderEmptyCart()}
+    </div>;
   }
 }
