@@ -8,27 +8,37 @@ class App extends Component {
   state = {
     CurrentCategory: "",
     products: [],
+    cart: [],
   };
-
 
   componentDidMount() {
     this.getProducts();
   }
 
+  addToCart = (product) => {
+    let newCart = this.state.cart;
+    var AddItem = newCart.find((c) => c.product.id === product.id);
+    if (AddItem) {
+      AddItem.quantity += 1;
+    } else {
+      newCart.push({ product: product, queantity: 1 });
+    }
 
-  changeCategory = category => {
-    this.setState({ CurrentCategory: category.categoryName });
-    console.log(category)
-  this.getProducts(category.id)
+    this.setState({ cart: newCart });
   };
-  getProducts = categoryId => {
+  changeCategory = (category) => {
+    this.setState({ CurrentCategory: category.categoryName });
+    // console.log(category)
+    this.getProducts(category.id);
+  };
+  getProducts = (categoryId) => {
     let url = "http://localhost:3002/products";
     if (categoryId) {
-      url += '?categoryId=' + categoryId;
+      url += "?categoryId=" + categoryId;
     }
     fetch(url)
-      .then(resonse => resonse.json())
-      .then(data => this.setState({ products: data }));
+      .then((resonse) => resonse.json())
+      .then((data) => this.setState({ products: data }));
   };
   render() {
     let TitleProduct = { title: "Hi Product", any: "hello Pro" };
@@ -36,9 +46,8 @@ class App extends Component {
     return (
       <div>
         <Container>
-          <Row>
-            <Navi />
-          </Row>
+          <Navi cart={this.state.cart} />
+
           <Row>
             <Col xs="3">
               <Categorylist
@@ -53,6 +62,7 @@ class App extends Component {
                 CurrentCategory={this.state.CurrentCategory}
                 changeCategory={this.changeCategory}
                 info={TitleProduct}
+                addToCart={this.addToCart}
               />
             </Col>
           </Row>
