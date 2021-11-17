@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import {
   Navbar,
   NavbarToggler,
@@ -6,6 +7,7 @@ import {
   Nav,
   NavItem,
   NavLink,
+  
   NavbarText
 
 } from "reactstrap";
@@ -20,7 +22,9 @@ class Navi extends Component {
           <Collapse navbar>
             <Nav className="me-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink>
+                <Link style={{textDecoration:'none' ,color:'black' ,fontSize:'14px' ,fontWeight:'bold'}} to="form1">Go to Form</Link>
+                </NavLink>
               </NavItem>
               <NavItem>
               

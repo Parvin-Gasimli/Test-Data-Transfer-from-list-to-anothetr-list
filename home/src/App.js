@@ -7,6 +7,7 @@ import { Col, Container, Row } from "reactstrap";
 import alertify from "alertifyjs";
 import NotFound from "./NotFound";
 import CartList from "./CartList";
+import FormDemo from "./FormDemo";
 
 class App extends Component {
   state = {
@@ -43,7 +44,7 @@ class App extends Component {
       newCart.pop(deletedItem);
     }
     this.setState({ cart: newCart });
-    alertify.error(`${product.productName} Adli Mehsulu Sebetinizden silindi`)
+    alertify.error(`${product.productName} Adli Mehsulu Sebetinizden silindi`);
   };
   changeCategory = (category) => {
     this.setState({ CurrentCategory: category.categoryName });
@@ -101,6 +102,9 @@ class App extends Component {
                       RemoveFromCart={this.RemoveFromCart}
                     />
                   )}
+                />
+                <Route path="/form1" component={FormDemo}
+                
                 />
                 <Route component={NotFound}></Route>
               </Switch>
