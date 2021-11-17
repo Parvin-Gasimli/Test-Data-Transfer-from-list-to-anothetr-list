@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table } from "reactstrap";
+import { Button, Table } from "reactstrap";
 
 export default class CartList extends Component {
   renderCart() {
@@ -12,19 +12,24 @@ export default class CartList extends Component {
             <th>Prdouct Name</th>
             <th>Unit Quantity</th>
             <th>Unit Price</th>
-            <th>Units in Stocks</th>
-        
+            <th>Count</th>
+          
           </tr>
         </thead>
         <tbody>
-          {this.props.cart.map((cartitem) => (
-            <tr key={cartitem.product.id}>
-              <td>{cartitem.product.id}</td>
-              <td>{cartitem.product.productName}</td>
-              <td>{cartitem.product.quantityPerUnit}</td>
-              <td>{cartitem.product.unitPrice}</td>
-              <td>{cartitem.product.unitsInStock}</td>
-         
+          {this.props.cart.map((cartItem) => (
+            <tr key={cartItem.product.id}>
+                   <td>{cartItem.product.id}</td>
+              <td>{cartItem.product.categoryId}</td>
+              <td>{cartItem.product.productName}</td>
+              <td>{cartItem.product.quantityPerUnit}</td>
+              <td>{cartItem.product.unitPrice}</td>
+              <td>{cartItem.count}</td>
+              <td>
+                <Button style={{color:'white',backgroundColor:'red'}} onClick={()=>window.confirm("Secdiyiniz Mehsulu sebetden silmek istediyinize emminsinizmi?") && this.props.RemoveFromCart(cartItem.product)} >
+                  Remowe
+                </Button>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -33,9 +38,9 @@ export default class CartList extends Component {
   }
   render() {
     return (
-      <div>
-        {this.renderCart()}
-      </div>
-    );
+   <div>
+      {this.renderCart()}
+   </div>
+    )
   }
 }

@@ -43,6 +43,7 @@ class App extends Component {
       newCart.pop(deletedItem);
     }
     this.setState({ cart: newCart });
+    alertify.error(`${product.productName} Adli Mehsulu Sebetinizden silindi`)
   };
   changeCategory = (category) => {
     this.setState({ CurrentCategory: category.categoryName });
@@ -93,17 +94,15 @@ class App extends Component {
                 <Route
                   exact
                   path="/cart"
-                  component={CartList}
                   render={(props) => (
                     <CartList
                       {...props}
                       cart={this.state.cart}
-                      RemoveFromCart={this.state.RemoveFromCart}
-                
+                      RemoveFromCart={this.RemoveFromCart}
                     />
                   )}
                 />
-                <Route component={NotFound} />
+                <Route component={NotFound}></Route>
               </Switch>
             </Col>
           </Row>
