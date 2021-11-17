@@ -60,7 +60,9 @@ class App extends Component {
     return (
       <div>
         <Container>
-          <Navi RemoveFromCart={this.RemoveFromCart} cart={this.state.cart} />
+     
+          <Navi RemoveFromCart={this.RemoveFromCart}
+          cart={this.state.cart} />
 
           <Row>
             <Col xs="3">

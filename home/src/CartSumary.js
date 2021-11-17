@@ -19,7 +19,7 @@ export default class CartSumary extends Component {
         <DropdownMenu end>
           {this.props.cart.map((cartItem) => (
             <DropdownItem key={cartItem.product.id}>
-                <Badge color="danger" onClick={()=>this.props.RemoveFromCart(cartItem.product)}>Sil </Badge>
+                <Badge color="danger" onClick={()=> window.confirm("Secdiyiniz Mehsulu sebetden silmek istediyinize emminsinizmi?")  &&this.props.RemoveFromCart(cartItem.product)}>Sil </Badge>
               {cartItem.product.productName}
               <Badge color="success">{cartItem.count}</Badge>
             </DropdownItem>
