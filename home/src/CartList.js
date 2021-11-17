@@ -34,7 +34,7 @@ export default class CartList extends Component {
   render() {
     return (
       <div>
-        <h2>Hi Cart</h2>
+        {this.renderCart()}
       </div>
     );
   }
