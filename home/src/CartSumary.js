@@ -16,7 +16,7 @@ export default class CartSumary extends Component {
         <DropdownToggle caret nav>
           Your Cart-{this.props.cart.length}
         </DropdownToggle>
-        <DropdownMenu right>
+        <DropdownMenu end>
           {this.props.cart.map((cartItem) => (
             <DropdownItem key={cartItem.product.id}>
                 <Badge color="danger" onClick={()=>this.props.RemoveFromCart(cartItem.product)}>Sil </Badge>

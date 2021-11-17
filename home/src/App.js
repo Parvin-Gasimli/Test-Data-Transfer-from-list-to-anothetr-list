@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Navi from "./Navi";
 import Productlist from "./ProductList";
 import { Col, Container, Row } from "reactstrap";
+import alertify from 'alertifyjs'
 
 class App extends Component {
   state = {
@@ -20,14 +21,23 @@ class App extends Component {
     var AddItem = newCart.find((c) => c.product.id === product.id);
     if (AddItem) {
       AddItem.count += 1;
+     
     } else {
       newCart.push({ product: product, count: 1 });
     }
 
     this.setState({ cart: newCart });
+    alertify.success(`${product.productName} adli Mehsul Sebete Elave edildi!!!`,1)
+
   };
   RemoveFromCart = (product) => {
-    let newCart = this.state.cart.filter((c) => c.product.id !== product.id);
+    let newCart = this.state.cart;
+    let deletedItem = newCart.find((e) => e.product.id === product.id);
+    if (deletedItem.count > 1) {
+      deletedItem.count -= 1;
+    } else {
+      newCart.pop(deletedItem);
+    }
     this.setState({ cart: newCart });
   };
   changeCategory = (category) => {
@@ -50,10 +60,7 @@ class App extends Component {
     return (
       <div>
         <Container>
-          <Navi 
-          RemoveFromCart={this.RemoveFromCart}
-
-          cart={this.state.cart} />
+          <Navi RemoveFromCart={this.RemoveFromCart} cart={this.state.cart} />
 
           <Row>
             <Col xs="3">
