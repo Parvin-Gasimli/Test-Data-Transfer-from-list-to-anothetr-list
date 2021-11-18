@@ -25,6 +25,12 @@ class Navi extends Component {
                 <NavLink>
                 <Link style={{textDecoration:'none' ,color:'black' ,fontSize:'14px' ,fontWeight:'bold'}} to="form1">Go to Form</Link>
                 </NavLink>
+                <NavLink>
+                <Link style={{textDecoration:'none' ,color:'black' ,fontSize:'14px' ,fontWeight:'bold'}} to="form2">Go to Form2</Link>
+                </NavLink>
+                <NavLink>
+                <Link style={{textDecoration:'none' ,color:'black' ,fontSize:'14px' ,fontWeight:'bold'}} to="/">Go to Home</Link>
+                </NavLink>
               </NavItem>
               <NavItem>
               

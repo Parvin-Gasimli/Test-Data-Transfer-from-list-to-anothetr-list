@@ -8,6 +8,7 @@ import alertify from "alertifyjs";
 import NotFound from "./NotFound";
 import CartList from "./CartList";
 import FormDemo from "./FormDemo";
+import Form2 from "./Form2";
 
 class App extends Component {
   state = {
@@ -104,6 +105,9 @@ class App extends Component {
                   )}
                 />
                 <Route path="/form1" component={FormDemo}
+                
+                />
+                <Route path="/form2" component={Form2}
                 
                 />
                 <Route component={NotFound}></Route>

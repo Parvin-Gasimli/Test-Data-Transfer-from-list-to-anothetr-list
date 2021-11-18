@@ -1,11 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class NotFound extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Not Found!!!</h1>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div id="wrapper">
+        <img src="https://i.imgur.com/qIufhof.png" />
+        <div id="info">
+          <h3>This page could not be found</h3>
+        </div>
+      </div>
+    );
+  }
 }
